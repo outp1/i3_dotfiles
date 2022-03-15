@@ -15,6 +15,8 @@ filetype indent on      " load filetype-specific indent files
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'olimorris/persisted.nvim'
+" Plug 'Shatur/neovim-session-manager'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sharkdp/fd'
 Plug 'BurntSushi/ripgrep'
@@ -30,6 +32,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'junegunn/fzf'
 Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-surround'
 " Plug 'scrooloose/nerdtree-project-plugin'
 
 " color schemas
@@ -290,3 +293,20 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+lua << EOF
+  require("persisted").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
+  use_git_branch = false, -- create session files based on the branch of the git enabled repository
+  autosave = true, -- automatically save session files when exiting Neovim
+  autoload = true, -- automatically load the session for the cwd on Neovim startup
+  options = { "buffers", "curdir", "tabpages", "winsize" }, -- session options used for saving
+  allowed_dirs = nil, -- table of dirs that the plugin will auto-save and auto-load from
+  ignored_dirs = nil, -- table of dirs that are ignored when auto-saving and auto-loading
+  before_save = function() end, -- function to run before the session is saved to disk
+  after_save = function() end, -- function to run after the session is saved to disk
+  }
+EOF
