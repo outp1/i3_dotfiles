@@ -23,14 +23,16 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id feh --bg-fill Documents/Wallpapers/patakarcdark.png
+exec --no-startup-id feh --bg-fill Documents/Wallpapers/awesomestars.jpg
 exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
-exec --no-startup-id polybar
-exec --no-startup-id picom --experimental-backends
+exec --no-startup-id polybar up1
+# exec --no-startup-id picom --experimental-backends
+# --experimental-backends
+exec --no-startup-id gromit-mpx --key F1 --undo-key F1
 
 for_window [class="^.*"] border pixel 0
 gaps inner 10
-#gaps outer 10
+# gaps outer 10
 gaps top 1
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -60,8 +62,10 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id rofi -show run
+# start rofi (a program launcher)
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
+
+bindsym $mod+n exec --no-startup-id ~/.config/rofi/powermenu/type-2/powermenu.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -73,6 +77,10 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+#SCREENSHOTS
+bindsym $mod+q exec flameshot gui
+bindcode 107 exec flameshotscreenfix
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -180,10 +188,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -199,5 +207,5 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+#for notebooks
+focus_follows_mouse no
