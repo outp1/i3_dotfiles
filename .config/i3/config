@@ -23,12 +23,15 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id feh --bg-fill Documents/Wallpapers/awesomestars.jpg
+exec --no-startup-id feh --bg-fill Documents/Wallpapers/ulich_atm.jpg
 exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
 exec --no-startup-id polybar up1
-# exec --no-startup-id picom --experimental-backends
+exec --no-startup-id picom 
 # --experimental-backends
 exec --no-startup-id gromit-mpx --key F1 --undo-key F1
+exec --no-startup-id xautolock -detectsleep -time 3 -locker lock
+exec --no-startup-id syndaemon -i 1 -t -K -R -d
+exec --no-startup-id tlp start
 
 for_window [class="^.*"] border pixel 0
 gaps inner 10

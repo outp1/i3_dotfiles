@@ -36,6 +36,7 @@ require('packer').startup(function(use)
   use 'preservim/nerdtree' -- Project Tree
   use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} } -- Opens buffers line 
   use 'tpope/vim-surround' -- Quick parentheses
+  use 'cocopon/iceberg.vim' -- iceberg colorscheme
 end)
 
 -- HOTKEYS --
@@ -54,6 +55,7 @@ map('n', 'M', ':Telescope find_files<CR>', {}) -- Open files search
 map('n', '<F2>', ':NERDTreeToggle<CR>', {}) -- Open files search
 map('n', '<F7>', ':LivedownToggle<CR>', {})
 map('n', '<F10>', ':NERDTreeRefreshRoot<CR>', {})
+map('i', 'jk', '<ESC>', {})
 -- Scrolling after enter BAG
 -- map('i', '<cr>', '<cr><C-o><C-e>', {})
 
@@ -84,7 +86,7 @@ vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme iceberg]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'

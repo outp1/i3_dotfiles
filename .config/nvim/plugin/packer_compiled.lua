@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/mdar/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["iceberg.vim"] = {
+    loaded = true,
+    path = "/home/mdar/.local/share/nvim/site/pack/packer/start/iceberg.vim",
+    url = "https://github.com/cocopon/iceberg.vim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/mdar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",

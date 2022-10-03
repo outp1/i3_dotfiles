@@ -1,0 +1,1 @@
+sudo rsync -vpr --files-from ~/.rsync_include_file_4_dots .config ~/Misc/Repos/i3_dotfiles/.config/ && sudo rsync -vpr ~/.zshrc ~/Misc/Repos/i3_dotfiles/
