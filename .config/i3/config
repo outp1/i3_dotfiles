@@ -29,11 +29,12 @@ exec --no-startup-id polybar up1
 exec --no-startup-id picom 
 # --experimental-backends
 exec --no-startup-id gromit-mpx --key F1 --undo-key F1
-exec --no-startup-id xautolock -detectsleep -time 3 -locker lock
+#exec --no-startup-id xautolock -detectsleep -time 3 -locker lock
 exec --no-startup-id syndaemon -i 1 -t -K -R -d
 exec --no-startup-id tlp start
+# exec --no-startup-id xrandr --output HDMI-1 --above eDP-1
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 gaps inner 10
 # gaps outer 10
 gaps top 1
@@ -126,18 +127,21 @@ bindsym $mod+Shift+space floating toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+set $MONITOR-1 eDP-1
+set $MONITOR-2 HDMI-1
+
 # focus the child container
 #bindsym $mod+d focus child
-workspace $ws6 output HDMI-0 
-workspace $ws1 output HDMI-0 
-workspace $ws2 output HDMI-0 
-workspace $ws3 output HDMI-0 
-workspace $ws4 output HDMI-0 
-workspace $ws5 output HDMI-0 
-workspace $ws7 output DVI-D-1 
-workspace $ws8 output DVI-D-1 
-workspace $ws9 output DVI-D-1 
-workspace $ws10 output DVI-D-1 
+workspace $ws6 output $MONITOR-1
+workspace $ws1 output $MONITOR-1 
+workspace $ws2 output $MONITOR-1
+workspace $ws3 output $MONITOR-1
+workspace $ws4 output $MONITOR-1 
+workspace $ws5 output $MONITOR-1 
+workspace $ws7 output $MONITOR-2
+workspace $ws8 output $MONITOR-2 
+workspace $ws9 output $MONITOR-2
+workspace $ws10 output $MONITOR-2 
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.

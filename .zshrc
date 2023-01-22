@@ -3,7 +3,11 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.config/lsp/lua-language-server/bin:$HOME/.cargo/bin:$HOME/luarocks-3.9.1/lua_modules/bin
+export JAVA_HOME=/usr/lib/jvm/java-19-openjdk
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -116,3 +120,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# -e 
+alias luamake=/luamake
