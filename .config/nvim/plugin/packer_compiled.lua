@@ -187,7 +187,7 @@ _G.packer_plugins = {
   ["obsidian.nvim"] = {
     loaded = true,
     path = "/home/mdar/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
-    url = "/home/mdar/mdar/lua/obsidian.nvim"
+    url = "https://github.com/epwalsh/obsidian.nvim"
   },
   ["onedark.nvim"] = {
     loaded = true,

@@ -3,6 +3,6 @@
 	"diagnostic-languageserver.enable": true,
 	"python.linting.flake8Enabled": false,
 	"python.formatting.yapfPath": "yapf",
-  "python.linting.pycodestyleEnabled": true,
-  "snippets.ultisnips.pythonPrompt": false
+  	"python.linting.pycodestyleEnabled": true,
+  	"snippets.ultisnips.pythonPrompt": false
 }
