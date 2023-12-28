@@ -1,0 +1,27 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/outp/Repos/ritECO/eco-core
+- /home/outp/Repos/ritECO/request-router-adapter
+- /home/outp/Repos/ritECO/dadata-adapter
+- /home/outp/Repos/ritECO/cdi-adapter
+- /home/outp/Repos/ritECO/address-information-loader-adapter
+- /home/outp/Repos/forks/OpenTabletDriver
+- /home/outp/Repos/OpenTabletDriver
+- /home/outp/Repos/ritECO/sso-adapter
+- /home/outp/Repos/ritECO/product-manager-adapter
+- /home/outp/.config/nvim/lua/user
+- /home/outp/.config/nvim
+- /home/outp/Repos/ritECO/app-config
+- /home/outp/Repos/ritECO/eco-event-manager
+startuppopupversion: 5
+customcommandshistory:
+- q
+- reset
+- commit --no-verify -m "RITECO-907 fix CloseOnFailureTask"
+- git commit --no-verify
+- git commit --amend --no-edit
+- git commit --amend --no-edit --no-verify
+- git checkout release-0.25
+- git checkout -b RITECO-907-mz-incorrect-comment
+- git commit --no-verify -m "fix duplicate pm patch"
+hidecommandlog: false

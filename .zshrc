@@ -1,13 +1,20 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+xinput set-prop "SYNA308F:00 06CB:CD77 Touchpad" "libinput Tapping Enabled" 1
+setxkbmap -layout us,ru -option grp:alt_shift_toggle
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:$HOME/.local/bin:$HOME/.config/lsp/lua-language-server/bin:$HOME/.cargo/bin:$HOME/luarocks-3.9.1/lua_modules/bin
-export JAVA_HOME=/usr/lib/jvm/java-19-openjdk
+export PATH=$PATH:$HOME/.local/bin
+
+#pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# Neovim git mergetool
+alias vimdiff='nvim -d'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -120,5 +127,3 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# -e 
-alias luamake=/luamake
