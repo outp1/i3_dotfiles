@@ -1,17 +1,26 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-xinput set-prop "SYNA308F:00 06CB:CD77 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "SYNA3602:00 0911:5288 Touchpad" "libinput Tapping Enabled" 1
 setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:$HOME/.local/bin
 
+# open-ai
+if [ -f "${0:A:h}/.openai_env" ]; then
+  source "${0:A:h}/.openai_env"
+fi
+
+
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# for user service "ssh-agent"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Neovim git mergetool
 alias vimdiff='nvim -d'
@@ -114,16 +123,15 @@ source $ZSH/oh-my-zsh.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mdar/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/mdar/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/mdar/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/mdar/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/mdar/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/mdar/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/mdar/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/mdar/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
-
