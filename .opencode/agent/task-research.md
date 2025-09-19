@@ -1,0 +1,1 @@
+../../../openagents-ai/cli/_registry/agents/task-research.md
