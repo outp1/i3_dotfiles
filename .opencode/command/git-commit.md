@@ -1,0 +1,1 @@
+../../../openagents-ai/cli/_registry/commands/git-commit.md

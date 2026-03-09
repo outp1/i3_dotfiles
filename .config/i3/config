@@ -24,7 +24,7 @@ font pango:monospace 8
 
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id feh --bg-fill ./docs/wallpapers/blue-4k-redmoon.jpg
+exec --no-startup-id feh --bg-fill /home/danya/docs/wallpapers/retro-paper.png
 exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
 exec --no-startup-id polybar up1
 # exec --no-startup-id picom
@@ -52,10 +52,19 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+# --- Notifications (dunst) ---
+# Ensure systemd user gets session env so DBus activation works
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY
+# Quick controls for notifications (avoid $mod+n clash with powermenu)
+bindsym $mod+Shift+n exec --no-startup-id dunstctl history-pop
+bindsym $mod+Ctrl+Shift+n exec --no-startup-id dunstctl context
+bindsym $mod+m exec --no-startup-id dunstctl close
+bindsym $mod+Shift+m exec --no-startup-id dunstctl close-all
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
 
 # Fast todo scrypt for 
 set $fast_todo_file "/home/danya/repos/obsvault/Base/FastTODO.md"
@@ -67,6 +76,12 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec ghostty
 
+# brightness
+bindsym XF86MonBrightnessUp exec brightnessctl s +1000
+
+# Decrease brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 1000-
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -74,7 +89,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
 
 # Use Mod+Shift+S to trigger speech-to-text
-bindsym $mod+Shift+s exec --no-startup-id /home/danya/repos/sh-scripts/dictate-loop.sh
+bindsym $mod+Shift+s exec --no-startup-id /home/danya/repos/whispercpp-voice-memos.git/dictate-loop.sh
 
 
 bindsym $mod+n exec --no-startup-id ~/.config/rofi/powermenu/type-2/powermenu.sh
