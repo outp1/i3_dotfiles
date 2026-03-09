@@ -1,0 +1,13 @@
+git:
+  pagers:
+    - colorArg: always
+      pager: "delta --paging=never --line-numbers --side-by-side"
+os:
+  edit: "nvr -cc vsplit --remote-wait +'set bufhidden=wipe' {{filename}}"
+customCommands:
+  - key: "<c-x>"
+    description: "AI commit with opencode"
+    context: "files" # works in the files panel, can be "global" if you want everywhere
+    command: "opencode run --command git-commit -m opencode/grok-code"
+    loadingText: 'Commiting with AI'
+    output: log
